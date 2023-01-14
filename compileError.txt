@@ -1,0 +1,244 @@
+###1 Compile Error ; missing JAR in the classpath 
+
+###2 Log4j can not find the properties file ; WARN StatusLogger No Log4j 2 configuration file found. Using default configuration (logging only errors to the console), or user programmatically provided configurations. Set system property 'log4j2.debug' to show Log4j 2 internal initialization logging. See https://logging.apache.org/log4j/2.x/manual/configuration.html for instructions on how to configure Log4j 2
+
+
+###1 
+C:\Users\PaulS\JavaCode\log4jExample>del log4jExample.class
+Could Not Find C:\Users\PaulS\JavaCode\log4jExample\log4jExample.class
+
+C:\Users\PaulS\JavaCode\log4jExample>"C:\Program Files\Java\jdk-19\bin\javac" log4jExample.java
+log4jExample.java:1: error: package org.apache.log4j does not exist
+import org.apache.log4j.Logger;
+                       ^
+log4jExample.java:21: error: cannot find symbol
+   static Logger log = Logger.getLogger(log4jExample.class.getName());
+          ^
+  symbol:   class Logger
+  location: class log4jExample
+log4jExample.java:21: error: cannot find symbol
+   static Logger log = Logger.getLogger(log4jExample.class.getName());
+                       ^
+  symbol:   variable Logger
+  location: class log4jExample
+3 errors
+
+C:\Users\PaulS\JavaCode\log4jExample>java log4jExample
+Error: Could not find or load main class log4jExample
+Caused by: java.lang.ClassNotFoundException: log4jExample
+
+###2
+
+C:\Users\PaulS\JavaCode\log4jExample>echo ;".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;"
+;".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;"
+
+C:\Users\PaulS\JavaCode\log4jExample>echo C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Users\PaulS\AppData\Local\Microsoft\WindowsApps;;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample
+C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Users\PaulS\AppData\Local\Microsoft\WindowsApps;;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample
+
+C:\Users\PaulS\JavaCode\log4jExample>set CLASSPATH=;".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;"
+
+C:\Users\PaulS\JavaCode\log4jExample>set PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Users\PaulS\AppData\Local\Microsoft\WindowsApps;;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample
+
+C:\Users\PaulS\JavaCode\log4jExample>"C:\Program Files\Java\jdk-19\bin\javac" log4jExample.java
+
+C:\Users\PaulS\JavaCode\log4jExample>java log4jExample
+test hello
+test hello2
+
+C:\Users\PaulS\JavaCode\log4jExample>//java -Dlog4j.configuration=file:C:\Users\PaulS\JavaCode\log4jExample\log4j.properties log4jExample
+The filename, directory name, or volume label syntax is incorrect.
+
+C:\Users\PaulS\JavaCode\log4jExample>java -Dlog4j2.debug=true log4jExample
+DEBUG StatusLogger Took 0.090075 seconds to load 255 plugins from jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger Using ShutdownCallbackRegistry class org.apache.logging.log4j.core.util.DefaultShutdownCallbackRegistry
+DEBUG StatusLogger AsyncLogger.ThreadNameStrategy=UNCACHED (user specified null, default is UNCACHED)
+TRACE StatusLogger Using default SystemClock for timestamps.
+DEBUG StatusLogger org.apache.logging.log4j.core.util.SystemClock supports precise timestamps.
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger PluginManager 'Converter' found 48 plugins
+DEBUG StatusLogger Starting OutputStreamManager SYSTEM_OUT.false.false-1
+DEBUG StatusLogger Starting LoggerContext[name=73d16e93, org.apache.logging.log4j.core.LoggerContext@f8c1ddd]...
+DEBUG StatusLogger Reconfiguration started for context[name=73d16e93] at URI null (org.apache.logging.log4j.core.LoggerContext@f8c1ddd) with optional ClassLoader: null
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger PluginManager 'ConfigurationFactory' found 6 plugins
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger Missing dependencies for Yaml support, ConfigurationFactory org.apache.logging.log4j.core.config.yaml.YamlConfigurationFactory is inactive
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger Missing dependencies for Json support, ConfigurationFactory org.apache.logging.log4j.core.config.json.JsonConfigurationFactory is inactive
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger Using configurationFactory org.apache.logging.log4j.core.config.ConfigurationFactory$Factory@3c72f59f
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.properties] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.properties] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yaml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.yaml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.json] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.json] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.jsn] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.jsn] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.xml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test73d16e93.xml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test.properties] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.properties] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test.yml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.yml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test.yaml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.yaml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test.json] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.json] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test.jsn] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.jsn] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2-test.xml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2-test.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2-test.xml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j273d16e93.properties] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j273d16e93.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.properties] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j273d16e93.yml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j273d16e93.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.yml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j273d16e93.yaml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j273d16e93.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.yaml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j273d16e93.json] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j273d16e93.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.json] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j273d16e93.jsn] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j273d16e93.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.jsn] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j273d16e93.xml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j273d16e93.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j273d16e93.xml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2.properties] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.properties] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.properties] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2.yml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.yml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.yml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2.yaml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.yaml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.yaml] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2.json] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.json] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.json] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2.jsn] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.jsn] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.jsn] using ClassLoader.getSystemResource().
+TRACE StatusLogger Trying to find [log4j2.xml] using context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93.
+TRACE StatusLogger Trying to find [log4j2.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.xml] using jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 class loader.
+TRACE StatusLogger Trying to find [log4j2.xml] using ClassLoader.getSystemResource().
+WARN StatusLogger No Log4j 2 configuration file found. Using default configuration (logging only errors to the console), or user programmatically provided configurations. Set system property 'log4j2.debug' to show Log4j 2 internal initialization logging. See https://logging.apache.org/log4j/2.x/manual/configuration.html for instructions on how to configure Log4j 2
+DEBUG StatusLogger PluginManager 'Lookup' found 16 plugins
+DEBUG StatusLogger PluginManager 'Converter' found 48 plugins
+DEBUG StatusLogger Starting OutputStreamManager SYSTEM_OUT.false.false-2
+DEBUG StatusLogger Apache Log4j Core 2.19.0 initializing configuration org.apache.logging.log4j.core.config.DefaultConfiguration@222114ba
+DEBUG StatusLogger PluginManager 'Core' found 132 plugins
+DEBUG StatusLogger PluginManager 'Level' found 0 plugins
+DEBUG StatusLogger Configuration org.apache.logging.log4j.core.config.DefaultConfiguration@222114ba initialized
+DEBUG StatusLogger Starting configuration org.apache.logging.log4j.core.config.DefaultConfiguration@222114ba
+DEBUG StatusLogger Started configuration org.apache.logging.log4j.core.config.DefaultConfiguration@222114ba OK.
+TRACE StatusLogger Stopping org.apache.logging.log4j.core.config.DefaultConfiguration@5606c0b...
+TRACE StatusLogger DefaultConfiguration notified 1 ReliabilityStrategies that config will be stopped.
+TRACE StatusLogger DefaultConfiguration stopping root LoggerConfig.
+TRACE StatusLogger DefaultConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+TRACE StatusLogger DefaultConfiguration stopping remaining Appenders.
+DEBUG StatusLogger Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
+DEBUG StatusLogger OutputStream closed
+DEBUG StatusLogger Shut down OutputStreamManager SYSTEM_OUT.false.false-1, all resources released: true
+DEBUG StatusLogger Appender DefaultConsole-1 stopped with status true
+TRACE StatusLogger DefaultConfiguration stopped 1 remaining Appenders.
+TRACE StatusLogger DefaultConfiguration cleaning Appenders from 1 LoggerConfigs.
+DEBUG StatusLogger Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@5606c0b OK
+TRACE StatusLogger Reregistering MBeans after reconfigure. Selector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector@7ee8290b
+TRACE StatusLogger Reregistering context (1/1): '73d16e93' org.apache.logging.log4j.core.LoggerContext@f8c1ddd
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=StatusLogger'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=ContextSelector'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=Loggers,name=*'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=Appenders,name=*'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=AsyncAppenders,name=*'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=AsyncLoggerRingBuffer'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=Loggers,name=*,subtype=RingBuffer'
+DEBUG StatusLogger Registering MBean org.apache.logging.log4j2:type=73d16e93
+DEBUG StatusLogger Registering MBean org.apache.logging.log4j2:type=73d16e93,component=StatusLogger
+DEBUG StatusLogger Registering MBean org.apache.logging.log4j2:type=73d16e93,component=ContextSelector
+DEBUG StatusLogger Registering MBean org.apache.logging.log4j2:type=73d16e93,component=Appenders,name=DefaultConsole-2
+TRACE StatusLogger Using default SystemClock for timestamps.
+DEBUG StatusLogger org.apache.logging.log4j.core.util.SystemClock supports precise timestamps.
+TRACE StatusLogger Using DummyNanoClock for nanosecond timestamps.
+DEBUG StatusLogger Reconfiguration complete for context[name=73d16e93] at URI NULL_SOURCE (org.apache.logging.log4j.core.LoggerContext@f8c1ddd) with optional ClassLoader: null
+DEBUG StatusLogger Shutdown hook enabled. Registering a new one.
+DEBUG StatusLogger LoggerContext[name=73d16e93, org.apache.logging.log4j.core.LoggerContext@f8c1ddd] started OK.
+test hello
+test hello2
+DEBUG StatusLogger Stopping LoggerContext[name=73d16e93, org.apache.logging.log4j.core.LoggerContext@f8c1ddd]
+DEBUG StatusLogger Stopping LoggerContext[name=73d16e93, org.apache.logging.log4j.core.LoggerContext@f8c1ddd]...
+TRACE StatusLogger Unregistering 1 MBeans: [org.apache.logging.log4j2:type=73d16e93]
+TRACE StatusLogger Unregistering 1 MBeans: [org.apache.logging.log4j2:type=73d16e93,component=StatusLogger]
+TRACE StatusLogger Unregistering 1 MBeans: [org.apache.logging.log4j2:type=73d16e93,component=ContextSelector]
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=Loggers,name=*'
+TRACE StatusLogger Unregistering 1 MBeans: [org.apache.logging.log4j2:type=73d16e93,component=Appenders,name=DefaultConsole-2]
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=AsyncAppenders,name=*'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=AsyncLoggerRingBuffer'
+TRACE StatusLogger Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=73d16e93,component=Loggers,name=*,subtype=RingBuffer'
+TRACE StatusLogger Stopping org.apache.logging.log4j.core.config.DefaultConfiguration@222114ba...
+TRACE StatusLogger DefaultConfiguration notified 1 ReliabilityStrategies that config will be stopped.
+TRACE StatusLogger DefaultConfiguration stopping root LoggerConfig.
+TRACE StatusLogger DefaultConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+TRACE StatusLogger DefaultConfiguration stopping remaining Appenders.
+DEBUG StatusLogger Shutting down OutputStreamManager SYSTEM_OUT.false.false-2
+DEBUG StatusLogger OutputStream closed
+DEBUG StatusLogger Shut down OutputStreamManager SYSTEM_OUT.false.false-2, all resources released: true
+DEBUG StatusLogger Appender DefaultConsole-2 stopped with status true
+TRACE StatusLogger DefaultConfiguration stopped 1 remaining Appenders.
+TRACE StatusLogger DefaultConfiguration cleaning Appenders from 1 LoggerConfigs.
+DEBUG StatusLogger Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@222114ba OK
+DEBUG StatusLogger Stopped LoggerContext[name=73d16e93, org.apache.logging.log4j.core.LoggerContext@f8c1ddd] with status true
+
+C:\Users\PaulS\JavaCode\log4jExample>echo ;".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;"
+;".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;";".;C:\Users\PaulS\JavaCode\log4jExample\*;C:\Users\PaulS\JavaCode\log4jExample\;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample\log4j.properties;"
+
+C:\Users\PaulS\JavaCode\log4jExample>echo C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Users\PaulS\AppData\Local\Microsoft\WindowsApps;;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample
+C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Users\PaulS\AppData\Local\Microsoft\WindowsApps;;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample;C:\Users\PaulS\JavaCode\log4jExample
+
+C:\Users\PaulS\JavaCode\log4jExample>
