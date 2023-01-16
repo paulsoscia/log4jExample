@@ -1,0 +1,4 @@
+2023-01-15 21:18:35.802 DEBUG [main] [log4jExample.main(log4jExample.java:30)] - Hello this is a debug message
+2023-01-15 21:18:35.804 INFO [main] [log4jExample.main(log4jExample.java:31)] - Hello this is an info message
+2023-01-15 21:18:43.229 DEBUG [main] [log4jExample.main(log4jExample.java:30)] - Hello this is a debug message
+2023-01-15 21:18:43.230 INFO [main] [log4jExample.main(log4jExample.java:31)] - Hello this is an info message

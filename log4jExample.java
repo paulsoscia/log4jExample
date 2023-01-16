@@ -14,6 +14,7 @@ public class log4jExample{
    /* Source -> https://www.tutorialspoint.com/log4j/log4j_sample_program.htm */
    /* https://logging.apache.org/log4j/2.x/  */
    /* You need at least the log4j-api-2.x and the log4j-core-2.x jar files.*/
+   /* https://howtodoinjava.com/log4j2/log4j2-properties-example/ */
 
 //System.setProperty("log4j.configurationFile", "C:\\Users\\PaulS\\JavaCode\\log4jExample\\log4j.properties");
 
@@ -26,10 +27,11 @@ public class log4jExample{
 
    static Logger log = Logger.getLogger(log4jExample.class.getName());
    
-   public static void main(String[] args)throws IOException,SQLException{
+   public static void main(String[] args) throws IOException,SQLException{
       log.debug("Hello this is a debug message");
       log.info("Hello this is an info message");
+ 
       System.out.println("test hello") ;
-System.out.println("test hello2") ;
+      System.out.println("test hello2") ;
    }
 }
