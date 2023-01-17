@@ -35,3 +35,18 @@ echo %path%
    javac A.java
    jar -cvf AA.jar A.class
    java -cp /home/jimb/A/AA.jar A
+
+/ Creating a Maven/MVN */
+
+    export M2_HOME=/home/jimb/JavaCode/apache-maven-3.8.7
+    export PATH=/home/jimb/JavaCode/apache-maven-3.8.7/bin:${PATH}
+    mvn --version
+    cd JavaCode
+    mkdir myapp
+    cd myapp
+    mvn archetype:generate
+    cd /JavaCode/myapp/MavenTestApp
+    mvn compile
+    mvn package
+    java -cp target/MavenTestApp-1.0-SNAPSHOT.jar com.paulsoscia.pas.App
+ 
