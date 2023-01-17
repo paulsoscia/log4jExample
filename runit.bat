@@ -38,17 +38,26 @@ echo %path%
 
 / Creating a Maven/MVN */
 
+    download Maven https://maven.apache.org/download.cgi
+    uncompress/unzip maven's binary 
+    
+    set/change/update two OS/LINUX environment variables 
     export M2_HOME=/home/jimb/JavaCode/apache-maven-3.8.7
     export PATH=/home/jimb/JavaCode/apache-maven-3.8.7/bin:${PATH}
+    
     mvn --version
     cd JavaCode
     mkdir myapp
     cd myapp
     mvn archetype:generate
-        /* Choose a number 1996 :  use the default */
-        /* Choose version  use the latest*/
-        /* Group ID com.paulsoscia.pas similar to package id*/
-        /* ArtiFacID  MavenTestApp  ClassName/WAR/JAR name */
+        /* Choose a number 1996 :  use the default          ex -> 1996 */
+        /* Choose version  use the latest                   ex -> */
+        /* Group ID com.paulsoscia.pas similar to packageId ex -> com.paulsoscia.pas */
+        /* ArtiFacID  MavenTestApp  ClassName/WAR/JAR name  ex -> MavenTestApp */
+        /* Version (use default)                            ex -> 1.0-SNAPSHOT */
+        /* Package (default group ID)                       ex -> com.paulsoscia.pas */
+        /* Y enter Y to confirm                             ex -> Y */
+        /* maven will create files (ex pom.xml) and a directory structure and root folder MavenTestApp */ 
     cd /JavaCode/myapp/MavenTestApp
     mvn compile
     mvn package
