@@ -45,6 +45,10 @@ echo %path%
     mkdir myapp
     cd myapp
     mvn archetype:generate
+        /* Choose a number 1996 :  use the default */
+        /* Choose version  use the latest*/
+        /* Group ID com.paulsoscia.pas similar to package id*/
+        /* ArtiFacID  MavenTestApp  ClassName/WAR/JAR name */
     cd /JavaCode/myapp/MavenTestApp
     mvn compile
     mvn package
