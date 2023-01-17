@@ -29,3 +29,9 @@ echo %classpath%
 echo ""
 echo "global path"
 echo %path%
+
+/* Creating a JAR and running a class inside a JAR */
+   gedit A.java
+   javac A.java
+   jar -cvf AA.jar A.class
+   java -cp /home/jimb/A/AA.jar A
